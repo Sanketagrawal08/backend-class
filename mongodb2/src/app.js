@@ -24,4 +24,10 @@ app.get("/get-all", async (req, res) => {
 
 });
 
+app.delete("/delete/:id", async (req, res) => {
+  const { id } = req.params;
+  await userModel.findByIdAndDelete(id);
+  res.send("deleted");
+})
+
 module.exports = app;
